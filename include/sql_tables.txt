@@ -1,0 +1,118 @@
+--
+-- Table structure for table `admin_setup`
+--
+
+CREATE TABLE `admin_setup` (
+  `id` int(6) NOT NULL,
+  `site_title` varchar(65) NOT NULL DEFAULT '',
+  `site_motto` varchar(512) DEFAULT NULL,
+  `site_created` varchar(65) NOT NULL DEFAULT '',
+  `site_url` varchar(65) NOT NULL DEFAULT '',
+  `admin_email` varchar(65) NOT NULL DEFAULT '',
+  `current_theme` varchar(60) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+--
+-- Dumping data for table `admin_setup`
+--
+
+INSERT INTO `admin_setup` (`id`, `site_title`, `site_motto`, `site_created`, `site_url`, `admin_email`, `current_theme`) VALUES
+(1, 'GFU theme Black', 'This is the default theme for most installs', '2015', '', '', 'black');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fivefields`
+--
+
+CREATE TABLE IF NOT EXISTS `fivefields` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `ca` varchar(65) NOT NULL DEFAULT '',
+  `cb` varchar(665) NOT NULL DEFAULT '',
+  `cc` varchar(5665) NOT NULL DEFAULT '',
+  `cd` varchar(665) NOT NULL DEFAULT '',
+  `ce` varchar(165) NOT NULL DEFAULT '',
+  `upstamp` datetime NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `cover` tinyint(1) NOT NULL,
+  `category` varchar(65) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `fivefields`
+--
+
+INSERT INTO `fivefields` (`id`, `ca`, `cb`, `cc`, `cd`, `ce`, `upstamp`, `image`, `cover`, `category`) VALUES
+(1, 'alternative input method', 'sun', 'This file is not hosted on this server. It is a file that was added to GIU by way of an external url.', '', '', '2015-03-20 04:13:26', 'http://larryjudd.us/img/open-source-logo.png', 0, 'Image Gallery');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `theme_option`
+--
+
+CREATE TABLE IF NOT EXISTS `theme_option` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `theme_width` int(6) NOT NULL,
+  `img_width` int(6) NOT NULL,
+  `max_imgs` int(6) NOT NULL,
+  `caption` varchar(65) NOT NULL,
+  `content` varchar(65) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `theme_option`
+--
+
+INSERT INTO `theme_option` (`id`, `theme_width`, `img_width`, `max_imgs`, `caption`, `content`) VALUES
+(1, 90, 200, 5, '3', '16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `theme_setup`
+--
+
+CREATE TABLE IF NOT EXISTS `theme_setup` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `page_name` varchar(65) NOT NULL,
+  `page_title` varchar(65) NOT NULL,
+  `page_motto` varchar(65) NOT NULL,
+  `page_ref` int(6) NOT NULL,
+  `theme_ref` varchar(65) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `theme_setup`
+--
+
+INSERT INTO `theme_setup` (`id`, `page_name`, `page_title`, `page_motto`, `page_ref`, `theme_ref`) VALUES
+(1, 'Image Gallery', 'Always something to look at', '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `user_name` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `user_pwd` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `user_email` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `activation_code` int(10) NOT NULL DEFAULT '0',
+  `joined` date NOT NULL DEFAULT '0000-00-00',
+  `country` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT '',
+  `user_activated` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `full_name`, `user_name`, `user_pwd`, `user_email`, `activation_code`, `joined`, `country`, `user_activated`) VALUES
+(1, 'Admin', '', '3de5a1f5653ce88aed40eebf65c8a62d', 'login@example.com', 1992, '2015-03-03', 'USA', 1);
